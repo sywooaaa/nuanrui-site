@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>暖芮滋补 | 把耗掉的气，一点点养回来</title>
+    <meta
+      name="description"
+      content="暖芮滋补，新中式食养饮品品牌。以药食同源食材为灵感，做适合日常坚持的一杯温和食补。"
+    />
+    <style>
+      :root {
+        --paper: #f7f5f1;
+        --rice: #eee8dc;
+        --linen: #e4dacb;
+        --ink: #11100e;
+        --muted: #6d665d;
+        --soft: #9c8f7d;
+        --red: #8c2e25;
+        --line: rgba(17, 16, 14, 0.18);
+        --white: #fffdf8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family:
+          "Songti SC",
+          "STSong",
+          "SimSun",
+          "PingFang SC",
+          serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      select {
+        font: inherit;
+      }
+
+      .shell {
+        width: min(1320px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      .nav {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 20;
+        color: var(--white);
+        mix-blend-mode: difference;
+      }
+
+      .nav-inner {
+        min-height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+      }
+
+      .brand {
+        font-weight: 800;
+        letter-spacing: 0.32em;
+      }
+
+      .links {
+        display: flex;
+        gap: 26px;
+        font-size: 14px;
+        letter-spacing: 0.08em;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: grid;
+        align-items: end;
+        overflow: hidden;
+        background: #211b16;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.08) 58%, rgba(0, 0, 0, 0.25));
+      }
+
+      .hero img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 1;
+        width: min(980px, calc(100% - 48px));
+        margin: 0 auto;
+        padding: 0 0 96px;
+        color: var(--white);
+      }
+
+      .eyebrow {
+        margin-bottom: 18px;
+        font-size: 14px;
+        letter-spacing: 0.36em;
+        text-transform: uppercase;
+      }
+
+      .hero h1 {
+        margin-bottom: 24px;
+        font-size: clamp(54px, 8vw, 118px);
+        line-height: 1.04;
+        letter-spacing: 0.18em;
+        font-weight: 800;
+      }
+
+      .hero p {
+        max-width: 660px;
+        margin-bottom: 34px;
+        font-size: 20px;
+        line-height: 2;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .button {
+        min-height: 46px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid currentColor;
+        padding: 0 24px;
+        background: transparent;
+        cursor: pointer;
+        letter-spacing: 0.08em;
+      }
+
+      .button.primary {
+        background: var(--ink);
+        color: var(--paper);
+        border-color: var(--ink);
+      }
+
+      .hero .button.primary {
+        background: var(--white);
+        color: var(--ink);
+        border-color: var(--white);
+      }
+
+      section {
+        padding: 96px 0;
+      }
+
+      .philosophy {
+        min-height: 72vh;
+        display: grid;
+        place-items: center;
+        text-align: center;
+      }
+
+      .philosophy p {
+        width: min(860px, 100%);
+        margin: 0 auto;
+        font-size: clamp(28px, 4vw, 52px);
+        line-height: 1.9;
+        letter-spacing: 0.08em;
+      }
+
+      .philosophy small {
+        display: block;
+        margin-top: 36px;
+        color: var(--muted);
+        font-size: 15px;
+        letter-spacing: 0.32em;
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
+        gap: 54px;
+        align-items: end;
+        margin-bottom: 52px;
+      }
+
+      .section-head h2 {
+        margin-bottom: 0;
+        font-size: clamp(38px, 5vw, 72px);
+        line-height: 1.18;
+        letter-spacing: 0.16em;
+      }
+
+      .section-head p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 2;
+      }
+
+      .story-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(340px, 0.56fr);
+        gap: 70px;
+        align-items: center;
+      }
+
+      .story-copy p {
+        color: var(--ink);
+        font-size: 20px;
+        line-height: 2.05;
+      }
+
+      .story-copy strong {
+        font-weight: 900;
+      }
+
+      .framed {
+        padding: 18px;
+        border: 1.5px solid var(--ink);
+        background: var(--paper);
+      }
+
+      .framed img {
+        width: 100%;
+        display: block;
+        aspect-ratio: 0.78;
+        object-fit: cover;
+      }
+
+      .collections {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .collection-card {
+        min-height: 620px;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        background: var(--white);
+        border: 1px solid var(--line);
+      }
+
+      .collection-card img {
+        width: 100%;
+        height: 430px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .collection-body {
+        padding: 26px;
+      }
+
+      .collection-body span {
+        display: block;
+        margin-bottom: 12px;
+        color: var(--soft);
+        font-size: 13px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+      }
+
+      .collection-body h3 {
+        margin-bottom: 12px;
+        font-size: 30px;
+        letter-spacing: 0.1em;
+      }
+
+      .collection-body p {
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .finder {
+        display: grid;
+        grid-template-columns: minmax(300px, 0.42fr) minmax(0, 1fr);
+        gap: 24px;
+      }
+
+      .panel,
+      .result,
+      .order-card {
+        border: 1px solid var(--line);
+        background: var(--white);
+      }
+
+      .panel {
+        padding: 28px;
+      }
+
+      .field {
+        display: grid;
+        gap: 10px;
+        margin-bottom: 22px;
+      }
+
+      .field label {
+        font-size: 17px;
+        font-weight: 800;
+      }
+
+      select {
+        min-height: 48px;
+        border: 1px solid var(--line);
+        background: var(--paper);
+        padding: 0 12px;
+      }
+
+      .result {
+        display: grid;
+        grid-template-columns: minmax(240px, 0.52fr) minmax(0, 1fr);
+        gap: 30px;
+        padding: 24px;
+      }
+
+      .result img {
+        width: 100%;
+        height: 100%;
+        min-height: 400px;
+        object-fit: cover;
+      }
+
+      .result-copy {
+        align-self: center;
+      }
+
+      .result-copy span {
+        display: block;
+        margin-bottom: 16px;
+        color: var(--red);
+        font-size: 16px;
+        letter-spacing: 0.28em;
+      }
+
+      .result-copy h3 {
+        margin-bottom: 18px;
+        font-size: clamp(34px, 4.6vw, 66px);
+        line-height: 1.22;
+        letter-spacing: 0.14em;
+      }
+
+      .result-copy p {
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.95;
+      }
+
+      .menu-tools {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 36px;
+      }
+
+      .filter {
+        min-height: 42px;
+        border: 1px solid var(--line);
+        background: transparent;
+        padding: 0 18px;
+        cursor: pointer;
+      }
+
+      .filter.active {
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 58px 44px;
+      }
+
+      .menu-item {
+        display: grid;
+        gap: 18px;
+      }
+
+      .menu-item img {
+        width: 100%;
+        aspect-ratio: 0.78;
+        object-fit: cover;
+        background: var(--white);
+      }
+
+      .menu-item h3 {
+        margin-bottom: 8px;
+        font-size: 25px;
+        line-height: 1.4;
+        letter-spacing: 0.08em;
+      }
+
+      .menu-item p {
+        margin-bottom: 4px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .price {
+        font-size: 23px;
+      }
+
+      .space-section {
+        display: grid;
+        grid-template-columns: minmax(320px, 0.8fr) minmax(0, 1fr);
+        gap: 70px;
+        align-items: center;
+        background: var(--rice);
+        width: 100%;
+        padding: 96px max(24px, calc((100vw - 1320px) / 2));
+      }
+
+      .space-section img {
+        width: 100%;
+        min-height: 480px;
+        object-fit: cover;
+      }
+
+      .space-copy h2 {
+        font-size: clamp(38px, 5vw, 72px);
+        line-height: 1.18;
+        letter-spacing: 0.16em;
+      }
+
+      .space-copy p {
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 2;
+      }
+
+      .order-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .order-card {
+        min-height: 230px;
+        padding: 28px;
+      }
+
+      .order-card span {
+        display: block;
+        margin-bottom: 28px;
+        color: var(--red);
+        font-size: 22px;
+      }
+
+      .order-card h3 {
+        margin-bottom: 14px;
+        font-size: 28px;
+      }
+
+      .order-card p {
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .footer {
+        padding: 72px 0 46px;
+        border-top: 1px solid var(--line);
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 28px;
+        align-items: flex-end;
+      }
+
+      .footer h2 {
+        margin-bottom: 16px;
+        font-size: clamp(34px, 4vw, 56px);
+        letter-spacing: 0.16em;
+      }
+
+      .footer p {
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      @media (max-width: 980px) {
+        .nav {
+          position: absolute;
+        }
+
+        .links {
+          display: none;
+        }
+
+        .section-head,
+        .story-grid,
+        .finder,
+        .result,
+        .space-section,
+        .footer-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .collections,
+        .menu-grid,
+        .order-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 620px) {
+        .shell {
+          width: min(100% - 28px, 1320px);
+        }
+
+        .hero-copy {
+          padding-bottom: 64px;
+        }
+
+        .hero h1 {
+          font-size: 46px;
+        }
+
+        .philosophy p {
+          font-size: 25px;
+        }
+
+        .collections,
+        .menu-grid,
+        .order-grid {
+          grid-template-columns: 1fr;
+        }
+
+        section {
+          padding: 68px 0;
+        }
+
+        .space-section {
+          padding-top: 68px;
+          padding-bottom: 68px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="shell nav-inner">
+        <a class="brand" href="#top">暖芮滋补</a>
+        <div class="links">
+          <a href="#story">品牌</a>
+          <a href="#collections">系列</a>
+          <a href="#finder">今日一杯</a>
+          <a href="#menu">饮品</a>
+          <a href="#order">订购</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <img src="assets/hero.png" alt="暖芮五红元气饮" />
+      <div class="hero-copy">
+        <p class="eyebrow">NUAN RUI TONIC DRINK</p>
+        <h1>把耗掉的气<br />一点点养回来</h1>
+        <p>暖芮以药食同源食材为灵感，将红枣、桂圆、桑葚、枸杞、山药、茯苓等温和食材，做成适合日常坚持的一杯新中式食养饮品。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#finder">看看今日适合哪一杯</a>
+          <a class="button" href="#collections">浏览饮品系列</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="shell philosophy">
+        <div>
+          <p>不做药，只做食。<br />什么人，耗什么气，便用一杯温和食补，慢慢养回来。</p>
+          <small>药食同源灵感 · 日常热饮 · 外卖自提</small>
+        </div>
+      </section>
+
+      <section class="shell" id="story">
+        <div class="section-head">
+          <h2>品牌故事</h2>
+          <p>方庄，有一家“养气所”。紧邻中医药大学东方医院，每天清晨熬煮红枣桂圆的香气，会飘进隔壁的医院走廊。</p>
+        </div>
+        <div class="story-grid">
+          <div class="story-copy">
+            <p>年轻人攥着药方不知道吃什么巩固状态；医护人员匆匆扒几口冷饭又冲回病房；小区老人念叨“药补不如食补”，却找不到懂食材的人。</p>
+            <p><strong>暖芮就这样开了。</strong>它不追求“治好谁”，只想用一杯温和、好入口、容易坚持的热饮，陪你把被工作、作息、天气和情绪耗掉的气，一点点养回来。</p>
+          </div>
+          <div class="framed">
+            <img src="assets/grid.jpg" alt="暖芮产品图谱" />
+          </div>
+        </div>
+      </section>
+
+      <section class="shell" id="collections">
+        <div class="section-head">
+          <h2>饮品系列</h2>
+          <p>借鉴东方生活方式品牌的系列化叙事，暖芮不只按单品售卖，也按不同“耗气”场景组织饮品。</p>
+        </div>
+        <div class="collections">
+          <article class="collection-card">
+            <img src="assets/product-5.png" alt="养血气系列" />
+            <div class="collection-body">
+              <span>Blood & Warmth</span>
+              <h3>养血气</h3>
+              <p>红糖姜枣、桂圆红枣、桃胶银耳。适合想喝一杯热的、温的、带一点甜意的时刻。</p>
+            </div>
+          </article>
+          <article class="collection-card">
+            <img src="assets/product-1.png" alt="养精气系列" />
+            <div class="collection-body">
+              <span>Energy & Focus</span>
+              <h3>养精气</h3>
+              <p>桑葚枸杞、黄精参苓、人参五宝。适合熬夜后、加班后、下午精神发空的日常补给。</p>
+            </div>
+          </article>
+          <article class="collection-card">
+            <img src="assets/product-3.png" alt="养神气系列" />
+            <div class="collection-body">
+              <span>Calm & Rest</span>
+              <h3>养神气</h3>
+              <p>酸枣仁小米露、百合莲子、茯苓安神。适合睡前、压力大、想慢慢收回心神的时候。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="shell" id="finder">
+        <div class="section-head">
+          <h2>今日一杯</h2>
+          <p>选择你今天的状态，暖芮为你推荐一杯更贴近日常的食养热饮。</p>
+        </div>
+        <div class="finder">
+          <aside class="panel">
+            <div class="field">
+              <label for="need">今天耗掉了什么气</label>
+              <select id="need">
+                <option value="blood">血气｜姨妈期、手脚冷、想喝热的</option>
+                <option value="jing">精气｜熬夜、加班、精神发空</option>
+                <option value="yuan">元气｜病后、疲惫、胃口弱</option>
+                <option value="shen">神气｜睡不踏实、压力大</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="temp">今天想要的口感</label>
+              <select id="temp">
+                <option>温热浓郁</option>
+                <option>清爽轻负担</option>
+                <option>奶香柔和</option>
+                <option>甜润有果感</option>
+              </select>
+            </div>
+            <button class="button primary" id="recommendBtn" type="button">生成今日饮品</button>
+          </aside>
+          <div class="result">
+            <img id="recImage" src="assets/product-5.png" alt="推荐饮品" />
+            <div class="result-copy">
+              <span id="recLabel">养血气</span>
+              <h3 id="recTitle">经典红糖姜枣茶</h3>
+              <p id="recText">红糖、姜枣的热感适合想喝一杯温的时刻。适合作为第一次尝试暖芮的入门款。</p>
+              <p id="recPrice">建议：热饮｜¥9.9｜外卖、自提皆可</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="shell" id="menu">
+        <div class="section-head">
+          <h2>饮品清单</h2>
+          <p>以“引流款、爆款、利润款、季节限定”的结构组织菜单，让每一杯都有清晰的位置。</p>
+        </div>
+        <div class="menu-tools">
+          <button class="filter active" data-filter="all" type="button">全部</button>
+          <button class="filter" data-filter="lead" type="button">引流款</button>
+          <button class="filter" data-filter="hot" type="button">爆款</button>
+          <button class="filter" data-filter="profit" type="button">利润款</button>
+          <button class="filter" data-filter="season" type="button">季节限定</button>
+        </div>
+        <div class="menu-grid">
+          <article class="menu-item" data-category="lead">
+            <img src="assets/product-5.png" alt="经典红糖姜枣茶" />
+            <div>
+              <h3>经典红糖姜枣茶</h3>
+              <p>养血气 · 引流款</p>
+              <div class="price">¥9.9</div>
+            </div>
+          </article>
+          <article class="menu-item" data-category="hot">
+            <img src="assets/product-2.png" alt="七白莓莓美颜饮" />
+            <div>
+              <h3>七白莓莓美颜饮</h3>
+              <p>养血气 · 女性爆款</p>
+              <div class="price">¥19</div>
+            </div>
+          </article>
+          <article class="menu-item" data-category="profit">
+            <img src="assets/product-6.png" alt="即食花胶牛乳饮" />
+            <div>
+              <h3>即食花胶牛乳饮</h3>
+              <p>养神气 · 利润款</p>
+              <div class="price">¥28</div>
+            </div>
+          </article>
+          <article class="menu-item" data-category="hot">
+            <img src="assets/product-1.png" alt="桂圆红枣暖心饮" />
+            <div>
+              <h3>桂圆红枣暖心饮</h3>
+              <p>养精气 · 日常补给</p>
+              <div class="price">¥18</div>
+            </div>
+          </article>
+          <article class="menu-item" data-category="profit">
+            <img src="assets/product-3.png" alt="舒眠酸枣仁小米露" />
+            <div>
+              <h3>舒眠酸枣仁小米露</h3>
+              <p>养神气 · 睡前热饮</p>
+              <div class="price">¥22</div>
+            </div>
+          </article>
+          <article class="menu-item" data-category="season">
+            <img src="assets/product-4.png" alt="祛湿薏米茯苓水" />
+            <div>
+              <h3>祛湿薏米茯苓水</h3>
+              <p>养元气 · 春夏限定</p>
+              <div class="price">¥15</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="space-section" id="space">
+        <img src="assets/grid.jpg" alt="暖芮食材与饮品" />
+        <div class="space-copy">
+          <h2>方庄养气所</h2>
+          <p>以外卖为主，少量自提堂食。20-30㎡小店，2-3人即可运转。加热、冲泡、组装，无复杂烹饪，让一杯食养热饮更适合高频日常订单。</p>
+          <p>覆盖医院、社区与办公人群：从早餐后的温润，到下午茶的补给，再到晚间的安神热饮。</p>
+        </div>
+      </section>
+
+      <section class="shell" id="order">
+        <div class="section-head">
+          <h2>订购方式</h2>
+          <p>所有饮品为普通食品，不替代药品或医嘱。如有特殊身体情况，请遵医嘱选择。</p>
+        </div>
+        <div class="order-grid">
+          <article class="order-card">
+            <span>01</span>
+            <h3>外卖平台</h3>
+            <p>美团 / 饿了么双平台上线，适合早餐后、下午茶和晚间热饮订单。</p>
+          </article>
+          <article class="order-card">
+            <span>02</span>
+            <h3>自提堂食</h3>
+            <p>方庄养气所支持少量自提与堂食，让附近社区、医院和办公人群更方便。</p>
+          </article>
+          <article class="order-card">
+            <span>03</span>
+            <h3>招牌推荐</h3>
+            <p>红糖姜枣茶、桂圆红枣暖心饮、舒眠酸枣仁小米露、祛湿薏米茯苓水。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell footer">
+      <div class="footer-inner">
+        <div>
+          <h2>暖芮滋补</h2>
+          <p>新中式食养饮品 · 药食同源灵感 · 把耗掉的气，一点点养回来</p>
+        </div>
+        <a class="button primary" href="#top">返回顶部</a>
+      </div>
+    </footer>
+
+    <script>
+      const recs = {
+        blood: {
+          image: "assets/product-5.png",
+          label: "养血气",
+          title: "经典红糖姜枣茶",
+          text: "红糖、姜枣的热感适合想喝一杯温的时刻。适合作为第一次尝试暖芮的入门款。",
+          price: "建议：热饮｜¥9.9｜外卖、自提皆可"
+        },
+        jing: {
+          image: "assets/product-1.png",
+          label: "养精气",
+          title: "桂圆红枣暖心饮",
+          text: "适合熬夜、加班、下午精神发空的日常补给。口感温润，适合办公室和外卖下午茶场景。",
+          price: "建议：热饮｜¥18｜日常补给"
+        },
+        yuan: {
+          image: "assets/product-4.png",
+          label: "养元气",
+          title: "祛湿薏米茯苓水",
+          text: "适合想要清爽一点、轻负担一点的日常调理场景。春夏季节可作为限定款。",
+          price: "建议：温饮或常温｜¥15｜春夏限定"
+        },
+        shen: {
+          image: "assets/product-3.png",
+          label: "养神气",
+          title: "舒眠酸枣仁小米露",
+          text: "适合晚间、压力大、睡前想要一点温和仪式感的人群。口感柔和，适合作为晚间热饮。",
+          price: "建议：热饮｜¥22｜睡前饮用"
+        }
+      };
+
+      document.getElementById("recommendBtn").addEventListener("click", () => {
+        const data = recs[document.getElementById("need").value];
+        document.getElementById("recImage").src = data.image;
+        document.getElementById("recLabel").textContent = data.label;
+        document.getElementById("recTitle").textContent = data.title;
+        document.getElementById("recText").textContent = data.text;
+        document.getElementById("recPrice").textContent = data.price;
+      });
+
+      document.querySelectorAll(".filter").forEach((button) => {
+        button.addEventListener("click", () => {
+          document.querySelectorAll(".filter").forEach((item) => item.classList.remove("active"));
+          button.classList.add("active");
+          const filter = button.dataset.filter;
+          document.querySelectorAll(".menu-item").forEach((item) => {
+            item.style.display = filter === "all" || item.dataset.category === filter ? "" : "none";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
