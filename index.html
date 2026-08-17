@@ -473,29 +473,38 @@
       }
 
       .qi-card {
-        min-height: 300px;
+        min-height: 430px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        overflow: hidden;
         border: 1px solid rgba(140, 46, 37, 0.2);
         background:
           linear-gradient(145deg, rgba(255, 253, 248, 0.9), rgba(238, 232, 220, 0.72)),
           var(--white);
-        padding: 28px;
       }
 
       .qi-card::before {
         content: "";
-        width: 42px;
+        width: 100%;
         height: 2px;
-        margin-bottom: 34px;
         background: var(--red);
+      }
+
+      .qi-card img {
+        width: 100%;
+        aspect-ratio: 1.1;
+        object-fit: cover;
+        display: block;
+      }
+
+      .qi-card-body {
+        padding: 24px;
       }
 
       .qi-card h3 {
         margin-bottom: 18px;
         color: var(--red);
-        font-size: 24px;
+        font-size: 22px;
         line-height: 1.5;
         letter-spacing: 0.06em;
       }
@@ -822,25 +831,29 @@
           </div>
           <div class="qi-map-grid">
             <article class="qi-card">
-              <div>
+              <img src="assets/product-2.png" alt="暖芮外卖热饮" />
+              <div class="qi-card-body">
                 <h3>第一站 · 外卖到家</h3>
                 <p>门店紧邻中医药大学东方医院，周边3公里覆盖大型社区与办公楼。已签约美团与饿了么，动动手指就能收到一杯温热。</p>
               </div>
             </article>
             <article class="qi-card">
-              <div>
+              <img src="assets/product-5.png" alt="暖芮小红书种草饮品" />
+              <div class="qi-card-body">
                 <h3>第二站 · 小红书种草</h3>
                 <p>用真实笔记代替硬广。围绕“方庄美食探店”“养气日常”“办公室养生茶”三个方向持续发声，成为方庄区域最具辨识度的食养品牌。</p>
               </div>
             </article>
             <article class="qi-card">
-              <div>
+              <img src="assets/grid.jpg" alt="暖芮门店日常与食材" />
+              <div class="qi-card-body">
                 <h3>第三站 · 抖音同城</h3>
                 <p>用短视频记录门店日常：一杯饮品的制作、客人堂食的瞬间、外卖打包的场景。不追求爆款，追求真实感。</p>
               </div>
             </article>
             <article class="qi-card">
-              <div>
+              <img src="assets/product-6.png" alt="暖芮身边合作饮品" />
+              <div class="qi-card-body">
                 <h3>第四站 · 在你身边</h3>
                 <p>走进瑜伽馆、美容院、中医诊所、精品超市，以“会员专属福利”的方式合作。第一批目标：方庄及周边5家。</p>
               </div>
