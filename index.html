@@ -458,6 +458,54 @@
         line-height: 2;
       }
 
+      .qi-map {
+        background: linear-gradient(180deg, var(--paper), #f2eadc);
+      }
+
+      .qi-map .section-head {
+        align-items: start;
+      }
+
+      .qi-map-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .qi-card {
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid rgba(140, 46, 37, 0.2);
+        background:
+          linear-gradient(145deg, rgba(255, 253, 248, 0.9), rgba(238, 232, 220, 0.72)),
+          var(--white);
+        padding: 28px;
+      }
+
+      .qi-card::before {
+        content: "";
+        width: 42px;
+        height: 2px;
+        margin-bottom: 34px;
+        background: var(--red);
+      }
+
+      .qi-card h3 {
+        margin-bottom: 18px;
+        color: var(--red);
+        font-size: 24px;
+        line-height: 1.5;
+        letter-spacing: 0.06em;
+      }
+
+      .qi-card p {
+        margin-bottom: 0;
+        color: var(--muted);
+        line-height: 1.85;
+      }
+
       .order-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -529,6 +577,7 @@
 
         .collections,
         .menu-grid,
+        .qi-map-grid,
         .order-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -553,6 +602,7 @@
 
         .collections,
         .menu-grid,
+        .qi-map-grid,
         .order-grid {
           grid-template-columns: 1fr;
         }
@@ -761,6 +811,41 @@
           <h2>方庄养气所</h2>
           <p>以外卖为主，少量自提堂食。20-30㎡小店，2-3人即可运转。加热、冲泡、组装，无复杂烹饪，让一杯食养热饮更适合高频日常订单。</p>
           <p>覆盖医院、社区与办公人群：从早餐后的温润，到下午茶的补给，再到晚间的安神热饮。</p>
+        </div>
+      </section>
+
+      <section class="qi-map" id="qi-map">
+        <div class="shell">
+          <div class="section-head">
+            <h2>养气地图</h2>
+            <p>找到离你最近的那一杯</p>
+          </div>
+          <div class="qi-map-grid">
+            <article class="qi-card">
+              <div>
+                <h3>第一站 · 外卖到家</h3>
+                <p>门店紧邻中医药大学东方医院，周边3公里覆盖大型社区与办公楼。已签约美团与饿了么，动动手指就能收到一杯温热。</p>
+              </div>
+            </article>
+            <article class="qi-card">
+              <div>
+                <h3>第二站 · 小红书种草</h3>
+                <p>用真实笔记代替硬广。围绕“方庄美食探店”“养气日常”“办公室养生茶”三个方向持续发声，成为方庄区域最具辨识度的食养品牌。</p>
+              </div>
+            </article>
+            <article class="qi-card">
+              <div>
+                <h3>第三站 · 抖音同城</h3>
+                <p>用短视频记录门店日常：一杯饮品的制作、客人堂食的瞬间、外卖打包的场景。不追求爆款，追求真实感。</p>
+              </div>
+            </article>
+            <article class="qi-card">
+              <div>
+                <h3>第四站 · 在你身边</h3>
+                <p>走进瑜伽馆、美容院、中医诊所、精品超市，以“会员专属福利”的方式合作。第一批目标：方庄及周边5家。</p>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
